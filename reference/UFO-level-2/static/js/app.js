@@ -1,10 +1,8 @@
-
-
-// YOUR CODE HERE!
-// from data.js
-var tableData = data;
-
-// YOUR CODE HERE!
+// connect to sql data
+d3
+.json('/api/sql_data')
+.then(data => {
+  console.log(data);
 
 // Make the table show
 // select tbody

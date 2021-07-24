@@ -1,69 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Business Registration</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-</head>
-
-<body>
-  <div class="container text-center">
+<div class="wrapper">
+  <div class="hero text-center">
     <h1 class="jumbotron">Business in San Francisco</h1>
-    <div>
-      <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
-      {% for item in inventory %}
-      <div class="col-lg-4">
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <h4 class="card-title">{{ item.type }}</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Cost: {{ item.cost }}</h6>
-            <p class="card-text">Potential Revenue: {{ item.cost * item.stock}}</p>
+    <p>Welcome to Customize the Table</p>
+  </div>
+  <!-- Create a filter table -->
+  <div class="container">
+    <div class="row margin-top-50">
+      <div class="col-md-2">
+        <aside class="filters">
+          <div class="panel panel-default">
+            <div class="panel-heading">Filter Search</div>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <ul class="list-group" id="filters">
+                    <li class="filter list-group-item">
+                      <label for="business">Enter a Category</label>
+                      <input class="formcontrol" id="categoryname" type="text" placeholder="Food Services">
 
-
-            <div id="plot"></div>
-            <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
-            <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
-            <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
-            <script src="https://d3js.org/d3.v7.min.js"></script>
-            <script src="static/js/main.js"></script>
-
-
+                      <!-- <label for="date">Enter a Start Date</label>
+                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <label for="date">Enter a End Date</label>
+                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <label for="city">Enter a Zipcode</label>
+                        <input class="form-control" id="cityname" type="text" placeholder="">
+                        <label for="state">Enter a Neighborhood</label>
+                        <input class="form-control" id="statename" type="text" placeholder="">
+                        <label for="country">Enter a Category</label>
+                        <input class="form-control" id="countryname" type="text" placeholder=""> -->
+                    </li>
+                  </ul>
+                </div>
+                <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+              </form>
+            </div>
           </div>
+        </aside>
+      </div>
+      <div class="col-md-10">
+        <div id="table-area" class="">
+          <table id="ufo-table" class="table table-striped">
+            <thead>
+              <tr>
+                <th class="table-head">Business Name</th>
+                <th class="table-head">Business Category</th>
+                <th class="table-head">Location Start Date</th>
+                <th class="table-head">Neighborhood</th>
+                <th class="table-head">Zipcode</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
       </div>
-      {% endfor %}
-
     </div>
   </div>
-</body>
+  <footer class="footer">
+    <span class="bottom">Business in San Francisco</span>
+  </footer>
+</div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<!-- <script src="static/js/data.js"></script> -->
+<script src="../static/js/app.js"></script>
 
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokemon Data</title>
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="icon" type="image/png" href="static/images/project_demo_favicon.png">
-</head>
-
-<body>
-  <div id="plot"></div>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="static/js/main.js"></script>
-</body>
-
-</html>
+{% endblock %}
