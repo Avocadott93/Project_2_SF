@@ -13,6 +13,11 @@
 var sfbuz = "/api/sql_data_0";
 console.log("sfbuz")
 
+d3.json(sfbuz).then(function (sfbus) {
+  displayData(sfbus);
+
+});
+
 // Make the table show
 // select tbody
 tbody = d3.select("tbody");
@@ -28,7 +33,7 @@ function displayData(content) {
   })
 }
 
-displayData(sfbuz);
+// displayData(sfbuz);
 console.log("hello2");
 
 // Select the button in index.html
