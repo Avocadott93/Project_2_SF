@@ -108,14 +108,22 @@ select {
   margin-top: 200px;
   font-size: 70%;
   animation: title 1.5s forwards linear;
+  white-space: nowrap;
 }
 
 .hero p {
+  color: white;
   font-size: 2rem;
+  margin-bottom: 2ex;
   opacity: 0;
   animation: subtitle 1.2s forwards linear;
   animation-delay: 1.2s;
+  background: rgba(255, 255, 255, 0.3);
 }
+.container{
+  margin-top: 3ex;
+}
+
 
 /* input placeholder color changes */
 .form-control::-webkit-input-placeholder {

@@ -12,8 +12,12 @@
 // Save the json data into a new variable sfbuz
 var sfbuz = "/api/sql_data_0";
 console.log("sfbuz")
+var allData;
+
 
 d3.json(sfbuz).then(function (sfbus) {
+  sfbus.map(function(row) {delete row.index;});
+  allData = sfbus
   displayData(sfbus);
 
 });
@@ -58,10 +62,10 @@ function runEnter() {
 
   // Search for data, use Date.parse()to convert 
 
-  var result = sfbuz.filter(row => row["Category Name"] == inputValue);
+  var result = allData.filter(row => row["Business Category"].toLowerCase().includes(inputValue.toLowerCase()));
 
   console.log(result);
-
+  console.log(allData)
   // Put result into the table
 
   d3.select('tbody').html("");
